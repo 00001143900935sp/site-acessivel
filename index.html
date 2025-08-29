@@ -46,7 +46,7 @@
                         class="btn btn-primary btn-lg botao-inicio fw-semibold">Quero
                         conhecer!</a>
                 </div>
-                <img src="img/lossy-page1-640px-Os_Mutantes.tif (1).png" alt="A imagem apresenta o grupo musical Os mutantes, sao tres pessoas cantando em um microfone" title="Os mutantes - CC0 Domínio Público / Acervo Arquivo Nacional" class="img-fluid img-inicio">
+                <img src="img/lossy-page1-640px-Os_Mutantes.tif (1).png" alt="A imagem apresenta o grupo musical Os mutantes, sao tres pessoas cantando em um microfone" title="Os mutantes - CC0 Domín[...]
 
               </div>
         </section>
@@ -131,12 +131,26 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.js"></script>
     <script src="script.js"></script>
-  <audio id="musica-fundo" src="mus/03 - Os Mutantes - Panis Et Circenses (Remastered).mp3" autoplay loop>
-      Seu navegador não suporta o elemento de áudio.
-      </audio>
-      <button onclick="document.getElementById('musica-fundo').muted = !document.getElementById('musica-fundo').muted" class="btn btn-secondary mt-3">
-        Ativar/Desativar Música
+    <audio id="musica-fundo" src="mus/03 - Os Mutantes - Panis Et Circenses (Remastered).mp3" autoplay loop>
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <div class="d-flex flex-column align-items-center mt-3">
+        <button onclick="document.getElementById('musica-fundo').muted = !document.getElementById('musica-fundo').muted" class="btn btn-secondary mb-2">
+            Ativar/Desativar Música
         </button>
+        <!-- Controle de volume -->
+        <label for="volume-musica" class="form-label">Volume:</label>
+        <input type="range" id="volume-musica" min="0" max="1" step="0.01" value="0.5" style="width:200px">
+    </div>
+    <script>
+        // Define o volume padrão ao carregar
+        const audioMusica = document.getElementById('musica-fundo');
+        audioMusica.volume = 0.5;
+        // Atualiza o volume conforme o input
+        document.getElementById('volume-musica').addEventListener('input', function() {
+            audioMusica.volume = this.value;
+        });
+    </script>
 </body>
 
 </html>
